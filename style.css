@@ -193,3 +193,16 @@ main{
 .dropdown-menu{
     background-color: #343434;
 }
+
+.rodape{
+    margin-left: 290px;
+    margin-bottom: auto;
+}
+.rodape img{
+    margin-left:55px;
+}
+@media (max-width: 480px) {
+    .rodape{
+        margin-left: 30px;
+    }
+}

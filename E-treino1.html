@@ -41,19 +41,23 @@
   
     <div class="texto">
       <div id="container">
-    <h4> <b>TREINO UM</b> </h4> <br>
+    <h4> <b>TREINO <span>UM</span></b> </h4> <br>
     <h6 class="active">TREINO A </h6>
    
     
     <main class= "main" >
+      
+      <p id="zaz"></p>
         <div class="row">
             <div class="col-sm-6" >
-              <h6>QUEIMA DE GORDURA</h6>
+              <h6>QUEIMA DE GORDURA </h6> 
+              
               <div class="card">
                 <iframe width="418" height="250" src="https://www.youtube.com/embed/QZjuHeAn8wE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                  
+                
                 </div>
-              </div>
+              </div>  
+               
               <div class="col-sm-6" >
                 <h6>Cardio Hit</h6>
                 <div class="card">
@@ -87,96 +91,169 @@
                 
             </div></div>
            </div> </div>
-           <div class="some">
-             <button onclick="sumir()" id="load-more">
-              Treino B
+           <div class="some" >
+              <a href="treinob.html"><button id="load-more"  >
+             Treino B</button></a>
               <span class="loading"><span></span></span>
-          </button></div>
+          </div>
 
    
   
-          <div id="container-b">
-            <h4> <b>TREINO UM</b> </h4> <br>
-            <h6 class="active">TREINO B </h6>
-           
+          
+            <br> 
             
-            <main class= "main" >
-                <div class="row">
-                  <div class="col-sm-6" >
-                    <h6>Queima de Calorias</h6>
-                    <div class="card">
-                      
-                      <iframe width="418" height="250" src="https://www.youtube.com/embed/_cp5CMhx9Is" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        
-                      </div>
-                      </div>
-                   
-                      <div class="col-sm-6" >
-                        <h6>Cardio Hit</h6>
-                        <div class="card">
-                          
-                          <iframe width="418" height="250" src="https://www.youtube.com/embed/MKkxEifgGCY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            
-                          </div>
-                        </div>
-                        <div class="col-sm-6" >
-                          <h6>DESAFIO</h6>
-                            <div class="card">
-                              <iframe width="418" height="250" src="https://www.youtube.com/embed/_jfxC87xl_s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                
-                              </div>
-                            </div>
-        
-                      <div class="col-sm-6" > 
-                        <h6> 5 EXERCÍCIOS</h6>
-                        <div class="card">
-                       
-                        
-                      <iframe width="418" height="250" src="https://www.youtube.com/embed/CSnj1FkpMoA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>  
-                        </div>
-                      </div>
-                      
-                   
-                     </div>
-        
-                    
-                  
-                        
-                    </div>
-                   </div> </div> </div> </div>
-                     
-           
+            <p id="zaz"></p> 
+          <div class="some2" >
+           <h6><span>Acompanhe seu </span> Progresso </h6>
+          
+           <div class="tabela">
+           <table class="table" width="200px" align="center" >
+            
+            <tbody>
+              <tr>
+              <td>Vídeo 1</td>
+              <td><div id="btum">
+                <button id="bt1">OK</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Vídeo 2</td>
+              <td><div id="btdois">
+                <button id="bt2">OK</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Vídeo 3</td>
+              <td><div id="bttres">
+                <button id="bt3">OK</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Vídeo 4</td>
+              <td><div id="btquatro">
+                <button id="bt4">OK</button>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+           </table>
+           </div></div>
+         
     </main>
+    <footer class="rodape">
+      <div class="txt">
+          <p>Copyright © 2022 - <b>ConnectHealth</b></p>
+      </div>
+      <div class="logo">
+          <label class="logo"><img src="imagens/logo.png" alt="Logo" width="150px" height="auto"></label>
+      </div>
+  </footer>
 </div>
 <script>
+ window.onload = () => {
+   bt1.onclick=chamabt1;
   
-  var button = document.getElementById ("load-more");
+    let salvazero={
+      "data": [
+        {
+          "assistidos": "0",
 
-  button.addEventListener ("click", function () {
-   var container = document.getElementById ("container-b");
-   if (container.style.display === "block")  {
-    container.style.display = "none";
-   } else {
-    container.style.display= "block";
-
-   }
-
-  });
-  var buttonB = document.addEventListener("click", function (){
-
-      var containerB= document.getElementById("container");
-
-      containerB.classList.toggle ("hide");
-  
-    }) 
-    const some = document.querySelector (".some");
-    function sumir(){
-      some.style.display= "none";
+        }
+      ]
     }
+    let existe=JSON.parse(sessionStorage.getItem("db"));
+      sessionStorage.setItem ("db", JSON.stringify (salvazero));
+      document.getElementById ("zaz").innerText = "Você não assistiu vídeos";
+     
+  function chamabt1(){
+    let db=JSON.parse(sessionStorage.getItem("db"));
+    let numero= parseInt(db.data[0].assistidos);
+    if (numero==0){
+      document.getElementById ("zaz").innerText = "";
+    }
+    if (numero<4){
+    numero++;
+  }
+    db.data[0].assistidos= numero;
+    sessionStorage.setItem ("db", JSON.stringify (db));
+    document.getElementById("zaz").innerText= "Você assistiu: "+ db.data[0].assistidos+ " vídeo  / 4 vídeos";
+    document.getElementById("btum").innerHTML= `<button id="bt1" disabled>OK </button>`;
+}
+  
+  bt2.onclick=chamabt2;
+  let existe2=JSON.parse(sessionStorage.getItem("db"));
+    sessionStorage.setItem ("db", JSON.stringify (salvazero));
+    document.getElementById ("zaz").innerText= "Você não assistiu vídeos";
+  
+
+function chamabt2(){
+  let db=JSON.parse(sessionStorage.getItem("db"));
+  let numero= parseInt(db.data[0].assistidos);
+  if (numero==0){
+      document.getElementById ("zaz").innerText = "";
+    }
+  if (numero<4){
+  numero++;
+}
+  db.data[0].assistidos= numero;
+  sessionStorage.setItem ("db", JSON.stringify (db));
+  document.getElementById("zaz").innerText= "Você assistiu: "+ db.data[0].assistidos+ " vídeos  / 4 vídeos";
+  document.getElementById("btdois").innerHTML= `<button id="bt2" disabled>OK </button>`;
+  
+}
+
+bt3.onclick=chamabt3;
+  let existe3=JSON.parse(sessionStorage.getItem("db"));
+    sessionStorage.setItem ("db", JSON.stringify (salvazero));
+    document.getElementById ("zaz").innerText = "Você não assistiu vídeos";
+  
+
+function chamabt3(){
+  let db=JSON.parse(sessionStorage.getItem("db"));
+  let numero= parseInt(db.data[0].assistidos);
+  if (numero==0){
+      document.getElementById ("zaz").innerText = "";
+    }
+  if (numero<4){
+  numero++;
+}
+  db.data[0].assistidos= numero;
+  sessionStorage.setItem ("db", JSON.stringify (db));
+  document.getElementById("zaz").innerText= "Você assistiu: "+ db.data[0].assistidos+ " vídeos  / 4 vídeos";
+  document.getElementById("bttres").innerHTML= `<button id="bt3" disabled>OK </button>`;
+  
+}
+
+bt4.onclick=chamabt4;
+  let existe4=JSON.parse(sessionStorage.getItem("db"));
+    sessionStorage.setItem ("db", JSON.stringify (salvazero));
+    document.getElementById ("zaz").innerText = "Você não assistiu vídeos";
+  
+
+function chamabt4(){
+  let db=JSON.parse(sessionStorage.getItem("db"));
+  let numero= parseInt(db.data[0].assistidos);
+  if (numero==0){
+      document.getElementById ("zaz").innerText = "";
+    }
+  if (numero<4){
+  numero++;
+}
+  db.data[0].assistidos= numero;
+  sessionStorage.setItem ("db", JSON.stringify (db));
+  document.getElementById("zaz").innerText= "Você assistiu: "+ db.data[0].assistidos+ "  vídeos  / 4 vídeos";
+  document.getElementById("btquatro").innerHTML= `<button id="bt4" disabled>OK </button>`;
+  
+}}
+  
+  
+  
   </script>
 
-  <script></script>
+  
   
 </script>
 <script src="script.js"></script>
